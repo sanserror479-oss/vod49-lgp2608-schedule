@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f1ff">
+  <title>ВОД49-ЛГП2608 — Расписание</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div>
+      <h1>ВОД49-ЛГП2608</h1>
+      <p>Расписание группы</p>
+    </div>
+
+    <button id="adminButton" class="admin-button">
+      Администратор
+    </button>
+  </header>
+
+  <main class="container">
+
+    <section class="week-switcher">
+      <button id="prevWeek">←</button>
+
+      <div class="week-info">
+        <strong id="weekTitle">Неделя</strong>
+        <span id="weekDates"></span>
+      </div>
+
+      <button id="nextWeek">→</button>
+    </section>
+
+    <section class="week-type">
+      <button id="whiteWeek" class="week-button">
+        Белая неделя
+      </button>
+
+      <button id="grayWeek" class="week-button">
+        Серая неделя
+      </button>
+    </section>
+
+    <section id="schedule"></section>
+
+    <section class="empty-state" id="emptyState">
+      <div class="empty-icon">📚</div>
+      <h2>Пар пока нет</h2>
+      <p>Если расписание изменилось, администратор сможет добавить или изменить пару.</p>
+    </section>
+
+  </main>
+
+  <dialog id="adminDialog">
+    <div class="dialog-content">
+      <button id="closeAdmin" class="close-button">×</button>
+
+      <h2>Администратор</h2>
+
+      <p class="dialog-text">
+        Здесь можно будет добавлять, изменять и удалять пары.
+      </p>
+
+      <button id="addLesson" class="primary-button">
+        ＋ Добавить пару
+      </button>
+
+      <button id="exportData" class="secondary-button">
+        Экспорт расписания
+      </button>
+    </div>
+  </dialog>
+
+  <dialog id="lessonDialog">
+    <form method="dialog" id="lessonForm">
+
+      <h2 id="lessonDialogTitle">Добавить пару</h2>
+
+      <label>
+        Дата
+        <input type="date" id="lessonDate" required>
+      </label>
+
+      <label>
+        Номер пары
+        <input type="number" id="lessonNumber" min="1" max="10" value="1">
+      </label>
+
+      <label>
+        Время
+        <div class="time-row">
+          <input type="time" id="startTime">
+          <span>—</span>
+          <input type="time" id="endTime">
+        </div>
+      </label>
+
+      <label>
+        Предмет
+        <input type="text" id="subject" placeholder="Название предмета" required>
+      </label>
+
+      <label>
+        Преподаватель
+        <input type="text" id="teacher" placeholder="ФИО преподавателя">
+      </label>
+
+      <label>
+        Аудитория
+        <input type="text" id="classroom" placeholder="Например: 312">
+      </label>
+
+      <label>
+        Домашнее задание
+        <textarea id="homework" placeholder="Домашнее задание"></textarea>
+      </label>
+
+      <label>
+        Тип недели
+        <select id="weekType">
+          <option value="white">Белая</option>
+          <option value="gray">Серая</option>
+        </select>
+      </label>
+
+      <div class="form-buttons">
+        <button type="button" id="cancelLesson" class="secondary-button">
+          Отмена
+        </button>
+
+        <button type="submit" class="primary-button">
+          Сохранить
+        </button>
+      </div>
+
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+                                                                 </html>
