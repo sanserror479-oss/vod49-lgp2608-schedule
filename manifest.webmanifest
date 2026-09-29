@@ -1,0 +1,18 @@
+{
+  "name": "ВОД49-ЛГП2608 — Расписание",
+  "short_name": "ВОД49",
+  "description": "Расписание группы ВОД49-ЛГП2608",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f5ff",
+  "theme_color": "#7661d9",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
