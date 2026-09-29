@@ -1,0 +1,332 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f5ff, #eef7ff);
+  color: #29263a;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid #e5e0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  margin: 5px 0 0;
+  color: #777188;
+}
+
+.container {
+  width: min(900px, calc(100% - 24px));
+  margin: 24px auto 50px;
+}
+
+.admin-button,
+.primary-button,
+.secondary-button,
+.week-button,
+.week-switcher button {
+  border: 0;
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: 0.2s;
+}
+
+.admin-button,
+.primary-button {
+  background: #7661d9;
+  color: white;
+}
+
+.admin-button:hover,
+.primary-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.secondary-button {
+  background: #eeeaf8;
+  color: #49425d;
+}
+
+.week-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(70, 55, 100, 0.08);
+}
+
+.week-switcher button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: #f0ecfa;
+  color: #54477c;
+  font-size: 22px;
+}
+
+.week-info {
+  text-align: center;
+}
+
+.week-info strong {
+  display: block;
+  font-size: 18px;
+}
+
+.week-info span {
+  display: block;
+  margin-top: 5px;
+  color: #81798f;
+  font-size: 14px;
+}
+
+.week-type {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.week-button {
+  flex: 1;
+  background: white;
+  color: #5d5670;
+  border: 2px solid transparent;
+}
+
+.week-button.active {
+  border-color: #7661d9;
+  background: #f3efff;
+  color: #5b48b5;
+  font-weight: bold;
+}
+
+.day {
+  margin: 18px 0;
+}
+
+.day-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.day-title h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.day-title span {
+  color: #898292;
+  font-size: 14px;
+}
+
+.lesson {
+  background: white;
+  border-radius: 18px;
+  padding: 17px;
+  margin: 9px 0;
+  box-shadow: 0 5px 20px rgba(70, 55, 100, 0.07);
+}
+
+.lesson-top {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.lesson-number {
+  min-width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #eee9ff;
+  color: #6652bd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.lesson-info {
+  flex: 1;
+}
+
+.lesson-subject {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.lesson-meta {
+  margin-top: 7px;
+  color: #746e7e;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.homework {
+  margin-top: 12px;
+  padding: 11px 13px;
+  background: #f7f4ff;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.homework strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: #81798f;
+}
+
+.empty-icon {
+  font-size: 45px;
+}
+
+.empty-state h2 {
+  color: #4b4655;
+  margin-bottom: 8px;
+}
+
+dialog {
+  width: min(520px, calc(100% - 24px));
+  border: 0;
+  border-radius: 22px;
+  padding: 0;
+  box-shadow: 0 20px 70px rgba(30, 20, 50, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(30, 20, 50, 0.45);
+}
+
+.dialog-content,
+#lessonForm {
+  padding: 24px;
+}
+
+.dialog-content h2,
+#lessonForm h2 {
+  margin-top: 0;
+}
+
+.close-button {
+  float: right;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  color: #777;
+}
+
+.dialog-text {
+  color: #777188;
+  line-height: 1.5;
+}
+
+#lessonForm label {
+  display: block;
+  margin: 14px 0;
+  font-weight: bold;
+}
+
+#lessonForm input,
+#lessonForm textarea,
+#lessonForm select {
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px;
+  border: 1px solid #ddd7e8;
+  border-radius: 12px;
+  background: white;
+  outline: none;
+}
+
+#lessonForm textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time-row input {
+  flex: 1;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 19px;
+  }
+
+  .admin-button {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .container {
+    width: min(100% - 16px, 900px);
+  }
+
+  .week-type {
+    flex-direction: column;
+  }
+
+  .lesson {
+    padding: 14px;
+  }
+}
